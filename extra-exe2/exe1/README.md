@@ -16,7 +16,7 @@ If authorization validation is missing, users may manipulate the parameter to ac
 
 ## 2. Data Flow Diagram (DFD)
 
-![DFD Support Portal]supportportal.png)
+![DFD Support Portal](supportportal.png)
 
 ### DFD Components
 
