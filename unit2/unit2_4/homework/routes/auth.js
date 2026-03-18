@@ -1,3 +1,7 @@
+const express = require("express");
+const router = express.Router();
+const db = require("../utils/db");
+
 router.post("/login", (req, res) => {
     const { username, password } = req.body;
 
@@ -8,10 +12,12 @@ router.post("/login", (req, res) => {
             if (user) {
                 req.session.user = user.username;
                 req.session.userId = user.id;
-                res.redirect("/dashboard");
+                res.redirect("/dashboard.html");
             } else {
                 res.send("Login failed");
             }
         }
     );
 });
+
+module.exports = router;

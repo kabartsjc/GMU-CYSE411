@@ -1,3 +1,7 @@
+const express = require("express");
+const router = express.Router();
+const db = require("../utils/db");
+
 router.post("/transfer", (req, res) => {
     const from = req.body.fromAccount;
     const to = req.body.toAccount;
@@ -8,3 +12,5 @@ router.post("/transfer", (req, res) => {
 
     res.send("Transfer complete");
 });
+
+module.exports = router;
